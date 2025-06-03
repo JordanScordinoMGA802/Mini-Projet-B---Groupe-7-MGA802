@@ -1,10 +1,14 @@
 """
-Ce script permet de faire l'intégrale d'une fontion polynomiale du troisième ordre
+Ce script permet de faire l'intégrale d'une fontion polynomiale du troisième ordre avec la méthode des rectangles
 """
 
 from fonction import fonction_a_integrer_base
+from fonction import demander_polynome
 
 print(f"On cherche à faire l'intégrale entre a et b d'une fonction de la forme : p1 + p2*x + p3*x**2 + p4*x**3")
+
+# Coefficients du polynome
+coefficients = demander_polynome()
 
 # Bornes de l'intégrales
 a = float(input('Entrez la valeur de la borne inférieure : '))
@@ -23,7 +27,7 @@ depart = a + 0.5*base_rectangle
 # boucle tant qu'on a pas atteint la dernière valeur sur laquelle on veut intégrer
 while depart <= b-base_rectangle :
     # on ajoute à la valeur de l'intégrale l'aire du premier rectangle
-    integrale += fonction_a_integrer_base(depart)* base_rectangle
+    integrale += fonction_a_integrer_base(depart,coefficients)* base_rectangle
     depart += base_rectangle
 
 # on affiche la valeur de l'intégrale
