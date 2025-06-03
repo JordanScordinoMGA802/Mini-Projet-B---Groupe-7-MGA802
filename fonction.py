@@ -23,10 +23,8 @@ def demander_polynome():
 
     return coefficients
 
-def fonction_a_integrer_base(x):
-    coefficients = demander_polynome()
+def fonction_a_integrer_base(x, coefficients):
     return coefficients[0] + coefficients[1]*x + coefficients[2]*(x**2) + coefficients[3]*(x**3)
 
-def fonction_a_integrer_numpy(x):
-    coefficients = demander_polynome()
+def fonction_a_integrer_numpy(x, coefficients):
     return Polynomial(coefficients)(x)
