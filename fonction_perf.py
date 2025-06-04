@@ -27,3 +27,13 @@ def fonction_a_integrer_numpy_perf(x):
     """
     coefficients = np.random.uniform(-1, 1, size=(4,))*10
     return Polynomial(coefficients)(x)
+
+def polynome_aleatoire_perf():
+    """
+    Fourni un polynôme numpy de degré 3 aléatoire.
+    :param x:
+    :param coefficients: Les coefficients du polynome.
+    :return: La valeur du polynome en x.
+    """
+    coefficients = np.random.uniform(-1, 1, size=(4,))*10
+    return Polynomial(coefficients)
