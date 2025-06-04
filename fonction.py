@@ -58,7 +58,7 @@ def fonction_a_integrer_numpy(x, coefficients):
     :param coefficients: Les coefficients du polynome.
     :return: La valeur du polynome en x.
     """
-    return np.poly1d(coefficients)(x)
+    return Polynomial(coefficients)(x)
 
 def integrer_polynome_reel(a,b,coefficients):
     """
