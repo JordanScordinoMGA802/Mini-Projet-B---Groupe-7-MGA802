@@ -18,7 +18,7 @@ def integ_trapeze_numpy(a,b,fonction,n):
     aire (float): Le résultat de l'intégration.
     """
     # Vecteur avec toutes les valeurs de x entre a et b
-    x = np.linspace(a, b, n)
+    x = np.linspace(a, b, n+1)
     # Polynome de la fonction pour tout les x
     poly = fonction(x)
     #poly=p1 + p2*x + p3*x**2 + p4*x**3
@@ -44,10 +44,14 @@ def integ_trapeze_numpy_auto(a,b,fonction,n):
     aire (float): Le résultat de l'intégration.
     """
     # Vecteur avec toutes les valeurs de x entre a et b
-    x= np.linspace(a, b, n)
+    x= np.linspace(a, b, n+1)
     # Polynome de la fonction pour tout les x
     poly= fonction(x)
     # Utilisation de la fonction trapezoid fournie par numpy
     aire=np.trapezoid(poly, x)
     
     return aire
+
+p = Polynomial([0,1])
+print(p)
+print(integ_trapeze_numpy(0,1,p,10))
