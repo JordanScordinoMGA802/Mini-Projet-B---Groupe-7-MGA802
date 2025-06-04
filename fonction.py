@@ -2,7 +2,7 @@
 :file: fonction.py
 :brief: Ensemble de fonction permettant de demander les coefficients d'un polynome du 3ème ordre.
 """
-
+import numpy as np
 from numpy.polynomial import Polynomial
 
 def demander_coeff(coeff):
@@ -34,7 +34,7 @@ def demander_polynome():
     :return: Une liste de coefficients.
     """
     coefficients = []
-    print("Soit un polynome f(x) = p1 + p2.x + p3.x² = p4.x³.")
+    print("Soit un polynome f(x) = p4.x³ + p3.x² + p2.x = p1.x.")
     coefficients.append(demander_coeff("p1"))
     coefficients.append(demander_coeff("p2"))
     coefficients.append(demander_coeff("p3"))
@@ -49,7 +49,7 @@ def fonction_a_integrer_base(x, coefficients):
     :param coefficients: Les coefficients du polynome.
     :return: La valeur du polynome en x.
     """
-    return coefficients[0] + coefficients[1]*x + coefficients[2]*(x**2) + coefficients[3]*(x**3)
+    return coefficients[0]*(x**3) + coefficients[1]*(x**2) + coefficients[2]*x+ coefficients[3]
 
 def fonction_a_integrer_numpy(x, coefficients):
     """
@@ -58,4 +58,27 @@ def fonction_a_integrer_numpy(x, coefficients):
     :param coefficients: Les coefficients du polynome.
     :return: La valeur du polynome en x.
     """
-    return Polynomial(coefficients)(x)
+    return np.poly1d(coefficients)(x)
+
+def integrer_polynome_reel(a,b,coefficients):
+    """
+    Retourne l'intégrale entre a et b d'un polynôme d'ordre 3.
+    :param a: la borne inferieure de l'intégrale
+    :param b: la borne superieur de l'integrale
+    :param coefficients: Les coefficients du polynome.
+    :return: La valeur de l'intégrale, un float
+    """
+
+    # Si a > b, on lève une exception
+    if a > b:
+        raise ValueError
+
+    # Peut lever une exception si le cast en float est impossible!
+    a = float(a)
+    b = float(b)
+
+    if a == b:
+        return 0.0
+
+    polynome_integre = np.polyint(np.poly1d(coefficients))
+    return polynome_integre(b)-polynome_integre(a)
