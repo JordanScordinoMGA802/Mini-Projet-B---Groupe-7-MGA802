@@ -4,6 +4,7 @@
 """
 import numpy as np
 from numpy.polynomial import Polynomial
+from numpy.polynomial import polynomial as P
 
 def demander_coeff(coeff):
     """
@@ -80,5 +81,5 @@ def integrer_polynome_reel(a,b,coefficients):
     if a == b:
         return 0.0
 
-    polynome_integre = np.polyint(np.poly1d(coefficients))
+    polynome_integre = Polynomial(P.polyint(coefficients))
     return polynome_integre(b)-polynome_integre(a)
