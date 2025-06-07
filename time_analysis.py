@@ -26,7 +26,7 @@ tab_numpy_trap_times_auto = []
 
 
 
-for i in range(100):
+for i in range(10000):
         # Mesure du temps pour la méthode des rectangles
         start_time = perf_counter()
         rectangle_result = rectangle_python(a, b, *polynome_de_test, n)
@@ -180,7 +180,7 @@ plt.plot(n_values, numpy_rect_means, marker='o', label="NumPy Rectangle")
 plt.plot(n_values, numpy_trap_means, marker='o', label="NumPy Trapèze")
 plt.plot(n_values, numpy_simp_means, marker='o', label="NumPy Simpson")
 plt.plot(n_values, numpy_trap_auto_means, marker='o', label="NumPy Trapèze Auto")
-plt.xlabel("n (nombre de subdivisions)")
+plt.xlabel("n (nombre de subdivisions de l'intervalle)")
 plt.ylabel("Temps moyen (secondes)")
 plt.title("Temps d'exécution en fonction de n")
 plt.xscale('log')
