@@ -44,6 +44,6 @@ def integ_trapeze_numpy_auto(a,b,p1,p2,p3,p4,n):
     # Polynome de la fonction pour tout les x
     poly=p1 + p2*x + p3*x**2 + p4*x**3
     # Utilisation de la fonction trapezoid fournie par numpy
-    aire=np.trapezoid(poly, x)
+    aire=np.trapz(poly, x)
     
     return aire
