@@ -10,7 +10,7 @@ from integration_numerique.numpy.Rectangle_numpy import integrale_numpy_perf
 from integration_numerique.numpy.trapeze_numpy import integ_trapeze_numpy
 from fonction import integrer_polynome_reel
 from fonction_perf import polynome_aleatoire_perf
-
+coefficients = np.random.uniform(-1, 1, size=(4,))*10
 
 # Initialization: on recupère une fonction f(x) à intégrer
 a = -10
@@ -21,12 +21,19 @@ print(f"Voici le polynôme que l'on va intégrer pour le test de performance: {f
 # Liste vide qui va contenir la valeur de l'erreur pour un indice n
 erreur_rectangle_numpy = []
 erreur_trapeze_numpy = []
+erreur_simpson_numpy = []
+erreur_rectangle_python = []
+erreur_trapeze_python = []
+erreur_simpson_python = []
 
 # Pour n allant de 1 à 1000, on calcule l'erreur entre l'intégrale réelle et l'intégrale numérique, et on stock ce resultat dans la liste associée
 for i in range(1,100):
     integrale_reelle = integrer_polynome_reel(a,b,function_a_tester.coef)
     erreur_rectangle_numpy.append(np.abs(integrale_reelle - integrale_numpy_perf(function_a_tester, a, b, i)))
     erreur_trapeze_numpy.append(np.abs(integrale_reelle - integ_trapeze_numpy(a, b, function_a_tester, i)))
+    #erreur_simpson_numpy.append(np.abs(integrale_reelle - integ_simpson_numpy))
+    #erreur_rectangle_python.append(abs(integrale_reelle -
+    #erreur_trapeze_python.append(abs(integrale_reelle -
 
 # Plotting
 
