@@ -4,8 +4,8 @@ Script permettant de calculer l'erreur numérique entre l'intégrale numérique 
 import numpy as np
 
 from integration_numerique.numpy.Rectangle_numpy import integrale_numpy_perf
-from fonction import integrer_polynome_reel
-from fonction_perf import polynome_aleatoire_perf
+from fonctions.fonction import integrer_polynome_reel
+from fonctions.fonction_perf import polynome_aleatoire_perf
 
 
 # Initialization: on recupère une fonction f(x) à intégrer

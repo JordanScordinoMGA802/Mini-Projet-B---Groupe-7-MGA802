@@ -1,16 +1,22 @@
 import matplotlib.pyplot as plt
 
-from integration_numerique.numpy.Rectangle_numpy import integrale_python_perf
-from integration_numerique.python.rectangle_python import rectangle_python
-from integration_numerique.python.trapeze_python import trapeze_python
-from trapeze_numpy import integ_trapeze_numpy
-from trapeze_numpy import integ_trapeze_numpy_auto
-from integration_numerique.python.simpson_python import simpson_python
-from simpson_numpy import integral_simpson_numpy
-from numpy import mean
-from time import perf_counter 
+from integration_numerique.numpy import *
+from integration_numerique.python.rectangle_python import *
+from integration_numerique.python.trapeze_python import *
+from integration_numerique.python.simpson_python import *
 
-polynome_de_test = [1, 2, 3, 4]  # Coefficients du polynôme de test
+from integration_numerique.numpy.Rectangle_numpy import *
+from integration_numerique.numpy.trapeze_numpy import *
+from integration_numerique.numpy.simpson_numpy import *
+
+from fonctions.fonction_perf import polynome_aleatoire_perf
+
+from numpy import mean
+from time import perf_counter
+
+
+polynome_de_test = polynome_aleatoire_perf()  # Coefficients du polynôme de test
+polynome_de_test_base = list(np.random.uniform(-1, 1, size=(4,))*10)
 # Bornes de l'intégrale de test
 a = 0
 b = 10
@@ -47,25 +53,25 @@ for i in range(10000):
     
             # Mesure du temps pour la méthode NumPy des rectangles
         start_time = perf_counter()
-        numpy_rectangle_result = integrale_python_perf(lambda x: sum(c * x**i for i, c in enumerate(polynome_de_test)), a, b, n)
+        numpy_rectangle_result = integrale_numpy_perf(lambda x: sum(c * x**i for i, c in enumerate(polynome_de_test)), a, b, n)
         numpy_rectangle_time = perf_counter() - start_time
         tab_numpy_rect_times.append(numpy_rectangle_time)
 
         # Mesure du temps pour la méthode NumPy des trapèzes
         start_time = perf_counter()
-        numpy_trapeze_result_auto = integ_trapeze_numpy_auto(a, b, *polynome_de_test, n)
+        numpy_trapeze_result_auto = integ_trapeze_numpy_auto(a, b, polynome_de_test, n)
         numpy_trapeze_time_auto = perf_counter() - start_time
         tab_numpy_trap_times_auto.append(numpy_trapeze_time_auto)
 
         # Mesure du temps pour la méthode NumPy des trapèzes
         start_time = perf_counter()
-        numpy_trapeze_result = integ_trapeze_numpy(a, b, *polynome_de_test, n)
+        numpy_trapeze_result = integ_trapeze_numpy(a, b, polynome_de_test, n)
         numpy_trapeze_time = perf_counter() - start_time
         tab_numpy_trap_times.append(numpy_trapeze_time)
 
         # Mesure du temps pour la méthode NumPy de Simpson
         start_time = perf_counter()
-        numpy_simpson_result = integral_simpson_numpy(a, b, *polynome_de_test, n)
+        numpy_simpson_result = integral_simpson_numpy(a, b, polynome_de_test, n)
         numpy_simpson_time = perf_counter() - start_time
         tab_numpy_simp_times.append(numpy_simpson_time)
 
@@ -149,19 +155,15 @@ for n in n_values:
         tab_simp_times.append(perf_counter() - start_time)
 
         start_time = perf_counter()
-        integrale_python_perf(lambda x: sum(c * x**i for i, c in enumerate(polynome_de_test)), a, b, n)
-        tab_numpy_rect_times.append(perf_counter() - start_time)
-
-        start_time = perf_counter()
-        integ_trapeze_numpy(a, b, *polynome_de_test, n)
+        integ_trapeze_numpy(a, b, polynome_de_test, n)
         tab_numpy_trap_times.append(perf_counter() - start_time)
 
         start_time = perf_counter()
-        integral_simpson_numpy(a, b, *polynome_de_test, n)
+        integral_simpson_numpy(a, b, polynome_de_test, n)
         tab_numpy_simp_times.append(perf_counter() - start_time)
 
         start_time = perf_counter()
-        integ_trapeze_numpy_auto(a, b, *polynome_de_test, n)
+        integ_trapeze_numpy_auto(a, b, polynome_de_test, n)
         tab_numpy_trap_times_auto.append(perf_counter() - start_time)
 
     rect_means.append(mean(tab_rect_times))

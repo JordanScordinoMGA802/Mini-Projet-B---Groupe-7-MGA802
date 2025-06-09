@@ -1,6 +1,6 @@
 import numpy as np
-from fonction import fonction_a_integrer_numpy
-from fonction import demander_polynome
+from fonctions.fonction import fonction_a_integrer_numpy
+from fonctions.fonction import demander_polynome
 from time import perf_counter
 def integrale_numpy_perf(f,a,b,n) :
 

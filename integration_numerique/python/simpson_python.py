@@ -2,8 +2,7 @@
 Ce script permet de faire l'intégrale d'une fontion polynomiale du troisième ordre avec la méthode de simpson
 """
 
-from fonction import fonction_a_integrer_base
-from fonction import demander_polynome
+from fonctions.fonction import fonction_a_integrer_base
 
 # print(f"On cherche à faire l'intégrale entre a et b d'une fonction de la forme : p1 + p2*x + p3*x**2 + p4*x**3")
 

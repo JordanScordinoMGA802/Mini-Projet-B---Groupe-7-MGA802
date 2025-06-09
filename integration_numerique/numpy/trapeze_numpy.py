@@ -2,7 +2,7 @@
 import numpy as np
 from numpy.polynomial import Polynomial
 
-from fonction import fonction_a_integrer_numpy
+from fonctions.fonction import fonction_a_integrer_numpy
 
 def integ_trapeze_numpy(a,b,fonction,n):
     """

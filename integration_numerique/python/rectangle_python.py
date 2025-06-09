@@ -2,8 +2,8 @@
 Ce script permet de faire l'intégrale d'une fontion polynomiale du troisième ordre avec la méthode des rectangles
 """
 
-from fonction import fonction_a_integrer_base
-from fonction import demander_polynome
+from fonctions.fonction import fonction_a_integrer_base
+
 def rectangle_python(a,b,p1,p2,p3,p4,n):
     """
     Intégration en utilisant la méthode des rectangles.
