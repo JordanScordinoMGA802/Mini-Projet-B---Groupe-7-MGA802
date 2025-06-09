@@ -2,7 +2,7 @@ import numpy as np
 from fonction import fonction_a_integrer_numpy
 from fonction import demander_polynome
 from time import perf_counter
-def integrale_python_perf(f,a,b,n) :
+def integrale_numpy_perf(f,a,b,n) :
 
     longueur = (b-a)/n
     surface = 0

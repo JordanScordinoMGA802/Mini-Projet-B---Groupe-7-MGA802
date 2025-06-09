@@ -4,6 +4,7 @@
 """
 import numpy as np
 from numpy.polynomial import Polynomial
+from numpy.polynomial import polynomial as P
 
 def demander_coeff(coeff):
     """
@@ -49,7 +50,7 @@ def fonction_a_integrer_base(x, coefficients):
     :param coefficients: Les coefficients du polynome.
     :return: La valeur du polynome en x.
     """
-    return coefficients[0]*(x**3) + coefficients[1]*(x**2) + coefficients[2]*x+ coefficients[3]
+    return coefficients[0]+ coefficients[1]*x + coefficients[2]*(x**2) + coefficients[3]*(x**3)
 
 def fonction_a_integrer_numpy(x, coefficients):
     """
@@ -58,7 +59,7 @@ def fonction_a_integrer_numpy(x, coefficients):
     :param coefficients: Les coefficients du polynome.
     :return: La valeur du polynome en x.
     """
-    return np.poly1d(coefficients)(x)
+    return Polynomial(coefficients)(x)
 
 def integrer_polynome_reel(a,b,coefficients):
     """
@@ -80,5 +81,8 @@ def integrer_polynome_reel(a,b,coefficients):
     if a == b:
         return 0.0
 
-    polynome_integre = np.polyint(np.poly1d(coefficients))
+    polynome_integre = Polynomial(P.polyint(coefficients))
     return polynome_integre(b)-polynome_integre(a)
+
+print(fonction_a_integrer_base(2,[0,0,0,1]))
+print(fonction_a_integrer_numpy(2,[0,0,0,1]))
