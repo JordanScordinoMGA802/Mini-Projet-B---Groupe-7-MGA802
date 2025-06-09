@@ -1,5 +1,6 @@
 """
-
+:file: fonction_perf.py
+:brief: Fournit des polynomes aléatoires soit via numpy, soit via python base.
 """
 
 import numpy as np

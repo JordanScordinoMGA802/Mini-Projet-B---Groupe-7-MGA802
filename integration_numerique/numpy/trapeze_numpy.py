@@ -2,7 +2,7 @@
 import numpy as np
 from numpy.polynomial import Polynomial
 
-from fonction import fonction_a_integrer_numpy
+from fonctions.fonction import fonction_a_integrer_numpy
 
 def integ_trapeze_numpy(a,b,fonction,n):
     """
@@ -48,7 +48,7 @@ def integ_trapeze_numpy_auto(a,b,fonction,n):
     # Polynome de la fonction pour tout les x
     poly= fonction(x)
     # Utilisation de la fonction trapezoid fournie par numpy
-    aire=np.trapezoid(poly, x)
+    aire=np.trapz(poly, x)
     
     return aire
 

@@ -8,8 +8,9 @@ from numpy.polynomial import Polynomial
 # importe les fonctions personelles
 from integration_numerique.numpy.Rectangle_numpy import integrale_numpy_perf
 from integration_numerique.numpy.trapeze_numpy import integ_trapeze_numpy
-from fonction import integrer_polynome_reel
-from fonction_perf import polynome_aleatoire_perf
+
+from fonctions.fonction import integrer_polynome_reel
+from fonctions.fonction_perf import polynome_aleatoire_perf
 
 
 # Initialization: on recupère une fonction f(x) à intégrer
