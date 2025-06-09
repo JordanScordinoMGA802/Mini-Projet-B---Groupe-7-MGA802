@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from numpy.polynomial import Polynomial
 
 # importe les fonctions personelles
-from integration_numerique.numpy.Rectangle_numpy import integrale_numpy_perf
+from integration_numerique.numpy.Rectangle_numpy import integrale_numpy_rect
 from integration_numerique.numpy.trapeze_numpy import integ_trapeze_numpy
 
 from fonctions.fonction import integrer_polynome_reel
@@ -26,7 +26,7 @@ erreur_trapeze_numpy = []
 # Pour n allant de 1 à 1000, on calcule l'erreur entre l'intégrale réelle et l'intégrale numérique, et on stock ce resultat dans la liste associée
 for i in range(1,100):
     integrale_reelle = integrer_polynome_reel(a,b,function_a_tester.coef)
-    erreur_rectangle_numpy.append(np.abs(integrale_reelle - integrale_numpy_perf(function_a_tester, a, b, i)))
+    erreur_rectangle_numpy.append(np.abs(integrale_reelle - integrale_numpy_rect(function_a_tester, a, b, i)))
     erreur_trapeze_numpy.append(np.abs(integrale_reelle - integ_trapeze_numpy(a, b, function_a_tester, i)))
 
 # Plotting

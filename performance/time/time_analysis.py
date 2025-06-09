@@ -53,7 +53,7 @@ for i in range(10000):
     
             # Mesure du temps pour la méthode NumPy des rectangles
         start_time = perf_counter()
-        numpy_rectangle_result = integrale_numpy_perf(lambda x: sum(c * x**i for i, c in enumerate(polynome_de_test)), a, b, n)
+        numpy_rectangle_result = integrale_numpy_rect(lambda x: sum(c * x**i for i, c in enumerate(polynome_de_test)), a, b, n)
         numpy_rectangle_time = perf_counter() - start_time
         tab_numpy_rect_times.append(numpy_rectangle_time)
 
