@@ -2,7 +2,7 @@
 :file: fonction.py
 :brief: Ensemble de fonction permettant de demander les coefficients d'un polynome du 3ème ordre.
 """
-import numpy as np
+
 from numpy.polynomial import Polynomial
 from numpy.polynomial import polynomial as P
 
