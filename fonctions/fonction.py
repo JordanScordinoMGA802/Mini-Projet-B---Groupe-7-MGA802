@@ -83,6 +83,3 @@ def integrer_polynome_reel(a,b,coefficients):
 
     polynome_integre = Polynomial(P.polyint(coefficients))
     return polynome_integre(b)-polynome_integre(a)
-
-print(fonction_a_integrer_base(2,[0,0,0,1]))
-print(fonction_a_integrer_numpy(2,[0,0,0,1]))
