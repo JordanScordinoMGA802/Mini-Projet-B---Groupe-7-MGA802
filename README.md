@@ -43,6 +43,11 @@ Attention dans tous les cas tu dois éxecuter le code dans le dossier dans leque
 2. Crée un dossier et mets les fichiers à l'intérieur
 3. Ouvre le dossier dans ton IDE favori et éxecute `main.py`
 
+## Usage des fonctions d'analyse de performance.
+Si jamais vous souhaitez utiliser les fonctions d'analyse de performances:
+- Pour analyser le temps d'éxecution il suffit de lancer le script `time_analysis.py` mais seulement en mode débug.
+- Pour analyser l'erreur numérique il suffit de lancer le script  `erreur_numerique.py`
+
 
 # Structure du code
 Le code est decomposé en différentes fonctions mais la fonction la plus importante est : 
