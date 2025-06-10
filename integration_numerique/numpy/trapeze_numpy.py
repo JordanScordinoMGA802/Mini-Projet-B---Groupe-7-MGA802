@@ -51,7 +51,3 @@ def integ_trapeze_numpy_auto(a,b,fonction,n):
     aire=np.trapz(poly, x)
     
     return aire
-
-p = Polynomial([0,1])
-print(p)
-print(integ_trapeze_numpy(0,1,p,10))
