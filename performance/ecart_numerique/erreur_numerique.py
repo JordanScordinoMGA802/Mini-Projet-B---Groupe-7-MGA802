@@ -37,9 +37,9 @@ for i in range(1,100):
     erreur_rectangle_numpy.append(np.abs(integrale_reelle - integrale_numpy_rect(function_a_tester, a, b, i)))
     erreur_trapeze_numpy.append(np.abs(integrale_reelle - integ_trapeze_numpy(a, b, function_a_tester, i)))
     erreur_simpson_numpy.append(np.abs(integrale_reelle - integral_simpson_numpy(a,b,function_a_tester,i)))
-    erreur_rectangle_python.append(np.abs(integrale_reelle - rectangle_python(a,b,coefficients[0],coefficients[1],coefficients[2],coefficients[3],i)))
-    erreur_trapeze_python.append(np.abs(integrale_reelle - trapeze_python(a, b, coefficients[0],coefficients[1],coefficients[2],coefficients[3],i)))
-    erreur_simpson_python.append(np.abs(integrale_reelle - simpson_python(a, b, coefficients[0],coefficients[1],coefficients[2],coefficients[3],i)))
+    erreur_rectangle_python.append(abs(integrale_reelle - rectangle_python(a,b,coefficients[0],coefficients[1],coefficients[2],coefficients[3],i)))
+    erreur_trapeze_python.append(abs(integrale_reelle - trapeze_python(a, b, coefficients[0],coefficients[1],coefficients[2],coefficients[3],i)))
+    erreur_simpson_python.append(abs(integrale_reelle - simpson_python(a, b, coefficients[0],coefficients[1],coefficients[2],coefficients[3],i)))
 
 # Plotting
 
