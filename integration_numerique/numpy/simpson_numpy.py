@@ -17,8 +17,7 @@ def integral_simpson_numpy(a,b,function,n):
     """
     # Vecteur avec toutes les valeurs de x entre a et b
     x = np.linspace(a, b, n+1)
-    x_ab=np.cumsum(x[1:] + x[:-1])  # Calcul des intervalles
-    x_ab=x_ab/2
+    x_ab = (x[1:] + x[:-1]) / 2
     poly=function(x)
     # Polynome de la fonction pour tout les x
     poly_ab=function(x_ab)
