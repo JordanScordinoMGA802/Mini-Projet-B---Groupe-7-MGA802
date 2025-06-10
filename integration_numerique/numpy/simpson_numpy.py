@@ -1,6 +1,7 @@
 ################################ Integral de simpson avec numpy ################################
 
 import numpy as np
+from scipy.integrate import simpson
 
 def integral_simpson_numpy(a,b,function,n):
     """
@@ -29,3 +30,12 @@ def integral_simpson_numpy(a,b,function,n):
     aire= aires.cumsum()[-1]
     
     return aire
+
+
+
+def simpson_pp(a,b,p1,p2,p3,p4,n):
+    x = np.arange(a,b,(b-a)/n)
+    y = p1 + p2 * np.power(x,1) + p3 * np.power(x,2) + p4 * np.power(x,3)
+    int = simpson(y,x)
+    return int
+

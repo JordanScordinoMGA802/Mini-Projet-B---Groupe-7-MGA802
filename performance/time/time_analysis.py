@@ -16,6 +16,11 @@ from time import perf_counter
 
 
 polynome_de_test = polynome_aleatoire_perf()  # Coefficients du polynôme de test
+coefficients = polynome_de_test.coef
+p1 = coefficients[0]
+p2 = coefficients[1]
+p3 = coefficients[2]
+p4 = coefficients[3]
 polynome_de_test_base = list(np.random.uniform(-1, 1, size=(4,))*10)
 # Bornes de l'intégrale de test
 a = 0
@@ -29,6 +34,7 @@ tab_numpy_rect_times = []
 tab_numpy_trap_times = []
 tab_numpy_simp_times = []
 tab_numpy_trap_times_auto = []
+tab_scipy_simp_times_auto = []
 
 
 
@@ -57,7 +63,7 @@ for i in range(10000):
         numpy_rectangle_time = perf_counter() - start_time
         tab_numpy_rect_times.append(numpy_rectangle_time)
 
-        # Mesure du temps pour la méthode NumPy des trapèzes
+        # Mesure du temps pour la méthode NumPy des trapèzes pré-programmée
         start_time = perf_counter()
         numpy_trapeze_result_auto = integ_trapeze_numpy_auto(a, b, polynome_de_test, n)
         numpy_trapeze_time_auto = perf_counter() - start_time
@@ -75,6 +81,12 @@ for i in range(10000):
         numpy_simpson_time = perf_counter() - start_time
         tab_numpy_simp_times.append(numpy_simpson_time)
 
+        # Mesure du temps pour la méthode Scipy de Simpson pré-programmée
+        start_time = perf_counter()
+        scipy_simpson_result_auto = simpson_pp(a,b,p1,p2,p3,p4,n)
+        scipy_simpson_time_auto = perf_counter() - start_time
+        tab_scipy_simp_times_auto.append(scipy_simpson_time_auto)
+
 
 print(f"n={n}:")
 print(f"  Rectangle: {rectangle_result} in {rectangle_time:.6f} seconds")
@@ -85,6 +97,7 @@ print(f"  NumPy Trapèze: {numpy_trapeze_result} in {numpy_trapeze_time:.6f} sec
 print(f"  NumPy Simpson: {numpy_simpson_result} in {numpy_simpson_time:.6f} seconds")
 
 print(f"  Moyenne NumPy Trapèze Auto: {mean(tab_numpy_trap_times_auto)} seconds")
+print(f"Moyenne Scipy Simpson pré-programmée: {mean(tab_scipy_simp_times_auto)} seconds")
 print(f"  Moyenne Rectangle: {mean(tab_rect_times)} seconds")
 print(f"  Moyenne Trapèze: {mean(tab_trap_times)} seconds")
 print(f"  Moyenne Simpson: {mean(tab_simp_times)} seconds")
@@ -101,6 +114,7 @@ labels = [
     "NumPy Trapèze",
     "NumPy Simpson",
     "NumPy Trapèze Auto"
+    "Scipy Simpson Pré-programmée"
 ]
 moyennes = [
     mean(tab_rect_times),
@@ -109,7 +123,8 @@ moyennes = [
     mean(tab_numpy_rect_times),
     mean(tab_numpy_trap_times),
     mean(tab_numpy_simp_times),
-    mean(tab_numpy_trap_times_auto)
+    mean(tab_numpy_trap_times_auto),
+    mean(tab_scipy_simp_times_auto)
 ]
 
 plt.figure(figsize=(10, 6))
@@ -132,6 +147,7 @@ numpy_rect_means = []
 numpy_trap_means = []
 numpy_simp_means = []
 numpy_trap_auto_means = []
+scipy_simpson_pp_means = []
 
 for n in n_values:
     tab_rect_times = []
@@ -141,6 +157,7 @@ for n in n_values:
     tab_numpy_trap_times = []
     tab_numpy_simp_times = []
     tab_numpy_trap_times_auto = []
+    tab_scipy_simp_times_auto = []
 
     for _ in range(20):  # 20 répétitions pour la moyenne
         start_time = perf_counter()
@@ -167,6 +184,10 @@ for n in n_values:
         integ_trapeze_numpy_auto(a, b, polynome_de_test, n)
         tab_numpy_trap_times_auto.append(perf_counter() - start_time)
 
+        start_time = perf_counter()
+        simpson_pp(a,b,p1,p2,p3,p4,n)
+        tab_scipy_simp_times_auto.append(perf_counter() - start_time)
+
     rect_means.append(mean(tab_rect_times))
     trap_means.append(mean(tab_trap_times))
     simp_means.append(mean(tab_simp_times))
@@ -174,6 +195,7 @@ for n in n_values:
     numpy_trap_means.append(mean(tab_numpy_trap_times))
     numpy_simp_means.append(mean(tab_numpy_simp_times))
     numpy_trap_auto_means.append(mean(tab_numpy_trap_times_auto))
+    scipy_simpson_pp_means.append(mean(tab_scipy_simp_times_auto))
 
 plt.figure(figsize=(10, 6))
 plt.plot(n_values, rect_means, marker='o', label="Rectangle")
@@ -183,6 +205,7 @@ plt.plot(n_values, numpy_rect_means, marker='o', label="NumPy Rectangle")
 plt.plot(n_values, numpy_trap_means, marker='o', label="NumPy Trapèze")
 plt.plot(n_values, numpy_simp_means, marker='o', label="NumPy Simpson")
 plt.plot(n_values, numpy_trap_auto_means, marker='o', label="NumPy Trapèze Auto")
+plt.plot(n_values, scipy_simpson_pp_means, marker='o', label="Scipy Simpson Pré-programmée")
 plt.xlabel("n (nombre de subdivisions de l'intervalle)")
 plt.ylabel("Temps moyen (secondes)")
 plt.title("Temps d'exécution en fonction de n")
