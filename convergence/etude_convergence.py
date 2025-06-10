@@ -39,7 +39,7 @@ liste_segment = []
 liste_resultats_rect_numpy = []
 liste_resultats_rect_python = []
 
-for n in range(1,500):
+for n in range(1,200):
     liste_segment.append(n)
     liste_resultats_rect_numpy.append(integrale_numpy_rect(function_a_tester,a,b,n))
     liste_resultats_rect_python.append(rectangle_python(a,b,p1,p2,p3,p4,n))
@@ -69,7 +69,7 @@ liste_resultats_trap_numpy = []
 liste_resultats_trap_python = []
 liste_resultats_trap_pp = []
 
-for n in range(1,500):
+for n in range(1,200):
     liste_segment_trap.append(n)
     liste_resultats_trap_numpy.append(integ_trapeze_numpy(a,b,function_a_tester,n))
     liste_resultats_trap_python.append(trapeze_python(a,b,p1,p2,p3,p4,n))
@@ -101,7 +101,7 @@ liste_resultats_simp_numpy = []
 liste_resultats_simp_python = []
 liste_resultats_simp_pp = []
 
-for n in range(1,500):
+for n in range(1,200):
     liste_segment_simp.append(n)
     liste_resultats_simp_numpy.append(integral_simpson_numpy(a,b,function_a_tester,n))
     liste_resultats_simp_python.append(simpson_python(a,b,p1, p2, p3, p4, n))
@@ -114,7 +114,7 @@ plt.rcParams['figure.dpi'] = 100
 
 plt.figure(figsize=(8,5))
 #plt.fill_between(data.index,data['min_temp'],data['max_temp'],alpha=0.5,color='gray')
-#plt.plot(liste_segment_simp,liste_resultats_simp_numpy,label='Intégrale simpson Numpy',color='red',linewidth=3.0)
+plt.plot(liste_segment_simp,liste_resultats_simp_numpy,label='Intégrale simpson Numpy',color='red',linewidth=3.0)
 plt.plot(liste_segment_simp,liste_resultats_simp_python,label='Intégrale simpson Python',color='blue',linewidth=3.0)
 plt.plot(liste_segment_simp,liste_resultats_simp_pp,label='Intégrale simpson pré-programmé',color='green',linewidth=3.0)
 plt.title("Convergence de la méthode simpson")
