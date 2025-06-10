@@ -49,11 +49,11 @@ plt.rcParams['figure.dpi'] = 100
 
 plt.figure(figsize=(8,5))
 #plt.fill_between(data.index,data['min_temp'],data['max_temp'],alpha=0.5,color='gray')
-#plt.plot(erreur_rectangle_numpy,label='Intégrale rectangulaire Numpy',color='red',linewidth=3.0)
-#plt.plot(erreur_trapeze_numpy,label='Intégrale trapezoïdale Numpy',color='blue',linewidth=3.0)
-#plt.plot(erreur_simpson_numpy,label='Intégrale Simpson Numpy',color='green',linewidth=3.0)
-#plt.plot(erreur_rectangle_python,label='Intégrale Rectangle Python',color='yellow',linewidth=3.0)
-#plt.plot(erreur_trapeze_python,label='Intégrale Trapeze Python',color='pink',linewidth=3.0)
+plt.plot(erreur_rectangle_numpy,label='Intégrale rectangulaire Numpy',color='red',linewidth=3.0)
+plt.plot(erreur_trapeze_numpy,label='Intégrale trapezoïdale Numpy',color='blue',linewidth=3.0)
+plt.plot(erreur_simpson_numpy,label='Intégrale Simpson Numpy',color='green',linewidth=3.0)
+plt.plot(erreur_rectangle_python,label='Intégrale Rectangle Python',color='yellow',linewidth=3.0)
+plt.plot(erreur_trapeze_python,label='Intégrale Trapeze Python',color='pink',linewidth=3.0)
 plt.plot(erreur_simpson_python,label='Intégrale Simpson Python',color='black',linewidth=3.0)
 
 plt.title("Erreur de l'intégrale numérique")
