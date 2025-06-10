@@ -1,5 +1,5 @@
 # Mini-Projet-B---Groupe-7-MGA802
-Ce dépôt contient le code du mini-projet B pour l'équipe B. Ce projet à pour but de manipuler la librairie numpy de python et d'analyser la performance des différentes méthodes d'intégration (rectangle, trapèze, simpson). Un rapport sera rendu séparement, il présentera la structure du programme, l’évaluation de l'efficacité des intégrales, les courbes obtenues et la distribution des tâches au sein de l’équipe.
+Ce dépôt contient le code du mini-projet B pour l'équipe B. Ce projet à pour but de manipuler la librairie numpy de python et d'analyser la performance des différentes méthodes d'intégration (rectangle, trapèze, simpson). Un rapport sera rendu séparement, il présentera la convergence des intégrales, l’évaluation des intégrales sur un intervalle(erreur relative), et leurs éfficacité en temps de calcul.
 
 # Objectifs du code
  L’objectif de l’exercice est de démontrer la performance de la bibliothèque NumPy pour le
@@ -11,6 +11,17 @@ Ce dépôt contient le code du mini-projet B pour l'équipe B. Ce projet à pour
  - Methode des trapèzes en numpy
  - Methode de simpson en python
  - Methode de simpson en numpy
+
+# Structure du dépôt
+Le dépot est composé de deux fichiers et de quatre dossiers contenant les fonctions utiles au bon fonctionnement du code.
+- Le ReadMe
+- Le fichier `main.py` : fichier principale du rendu qui contient le code python
+- Le dossier `fonctions` qui contient les fonctions qui permettent de générer des polynomes aléatoires et les fonctions liées aux interactions utilisateurs.
+- Le dossier `intégration numérique` séparé en deux sous dossiers (numpy et python). Chacun des sous dossiers contient les fonctions de calcul des intégrals.
+- Le dossier `performance` n'est pas utilisé dans le fonctionnement normal du code. Il sert seulement à évaluer les performances des fonctions. Il contient les fonctions permettant de faire l'analyse de l'écart numérique des polynomes et les temps de calcul.
+- Le dossier `Ressources` contient nos courbes obtenues.
+
+
 
 # Comment utiliser le code
 Pour pouvoir utiliser le programme de César plusieurs options s'offrent à toi.
@@ -34,13 +45,9 @@ Attention dans tous les cas tu dois éxecuter le code dans le dossier dans leque
 
 
 # Structure du code
-Le code est decomposé en différentes fonctions : 
-- `main()` est la fonction principale qui appelle toutes les autres fonctions. On y trouve aussi les consignes utilisateurs et des vérifications sur les retours des fonctions/sur les entrées utilisateurs.
+Le code est decomposé en différentes fonctions mais la fonction la plus importante est : 
+- `main()` se charge de demander le polynome est la méthode d'intégration que l'on souhaite utiliser. En fonction du choix de l'utilisateur nous appellons les fonctions numpy en questions (numpy car fonctions les plus efficientes)
 
-# Structure du dépôt
-Le dépot est composé de deux fichiers.
-- Le ReadMe
-- Le fichier `main.py` : fichier principale du rendu qui contient le code python
 
 
 # Références
