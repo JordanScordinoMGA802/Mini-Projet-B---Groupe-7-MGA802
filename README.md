@@ -45,7 +45,7 @@ Attention dans tous les cas tu dois éxecuter le code dans le dossier dans leque
 
 ## Usage des fonctions d'analyse de performance.
 Si jamais vous souhaitez utiliser les fonctions d'analyse de performances:
-- Pour analyser le temps d'éxecution il suffit de lancer le script `time_analysis.py` mais seulement en mode débug.
+- Pour analyser le temps d'éxecution il suffit de lancer le script `time_analysis.py`. **Attention** l'execution peut prendre du temps car il y a beaucoup d'itérations.
 - Pour analyser l'erreur numérique il suffit de lancer le script  `erreur_numerique.py`
 
 
